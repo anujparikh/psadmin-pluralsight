@@ -1,21 +1,26 @@
 'use strict';
 import React from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
 
 class Header extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <a href="/" className="navbar-brand">
-            <img src="images/pluralsight-logo.png" alt="Pluralsight Logo"/>
-          </a>
-          <ul className="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/#authors">Authors</a></li>
-            <li><a href="/#about">About</a></li>
-          </ul>
-        </div>
-      </nav>
+      <div>
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <Link to="/" className="navbar-brand">
+              <img src="images/pluralsight-logo.png" alt="Pluralsight Logo"/>
+            </Link>
+            <ul className="nav navbar-nav">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/authors">Authors</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/badlink">Bad Link</Link></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     );
   }
 }
