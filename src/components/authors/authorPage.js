@@ -3,6 +3,7 @@
 import React from 'react';
 import AuthorApi from '../../api/authorApi';
 import AuthorList from './authorList';
+import {Link} from 'react-router-dom';
 
 class AuthorPage extends React.Component {
   state = {
@@ -17,6 +18,7 @@ class AuthorPage extends React.Component {
     return (
       <div>
         <h1>Authors</h1>
+        <Link to="/author"><button className="btn btn-default">Add Author</button></Link>
         <AuthorList authors={this.state.authors}/>
       </div>
     );

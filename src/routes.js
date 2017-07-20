@@ -4,6 +4,7 @@ import HomePage from './components/homePage';
 import AuthorPage from './components/authors/authorPage';
 import AboutPage from './components/about/aboutPage';
 import NotFoundPage from './components/notFoundPage';
+import ManageAuthor from './components/authors/manageAuthor';
 
 module.exports = () => {
   return (
@@ -13,6 +14,7 @@ module.exports = () => {
           <Route exact path="/" component={HomePage}/>
           <Route path="/authors" component={AuthorPage}/>
           <Route path="/about" component={AboutPage}/>
+          <Route path="/author" component={ManageAuthor}/>
           <Route component={NotFoundPage}/>
         </Switch>
       </div>
