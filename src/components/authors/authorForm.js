@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Input from '../common/textInput';
 
-module.exports = (props) => {
+const AuthorForm = (props) => {
   return (
     <div>
       <form>
@@ -27,3 +27,12 @@ module.exports = (props) => {
     </div>
   );
 };
+
+AuthorForm.propTypes = {
+  author: PropTypes.object.isRequired,
+  onSave: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  errors: PropTypes.object
+};
+
+module.exports = AuthorForm;
