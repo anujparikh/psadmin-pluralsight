@@ -11,6 +11,7 @@ module.exports = (props) => {
           label="First Name"
           value={props.author.firstName}
           onChange={props.onChange}
+          error={props.errors.firstName}
         />
         <br/>
         <Input
@@ -18,6 +19,7 @@ module.exports = (props) => {
           label="Last Name"
           value={props.author.lastName}
           onChange={props.onChange}
+          error={props.errors.lastName}
         />
         <br/>
         <input type="submit" value="Save" className="btn btn-default" onClick={props.onSave}/>

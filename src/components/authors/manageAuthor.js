@@ -11,7 +11,8 @@ class ManageAuthor extends React.Component {
       firstName: '',
       lastName: ''
     },
-    redirect: false
+    redirect: false,
+    errors: {}
   };
 
   setAuthorState = (event) => {
@@ -21,8 +22,31 @@ class ManageAuthor extends React.Component {
     });
   };
 
+  authorFormIsValid = () => {
+    let formIsValid = true;
+    this.state.errors = {}; //clear any previous errors.
+
+    if (this.state.author.firstName.length < 3) {
+      this.state.errors.firstName = 'First name must be at least 3 characters.';
+      formIsValid = false;
+    }
+
+    if (this.state.author.lastName.length < 3) {
+      this.state.errors.lastName = 'Last name must be at least 3 characters.';
+      formIsValid = false;
+    }
+
+    this.setState({errors: this.state.errors});
+    return formIsValid;
+  };
+
   saveAuthor = (event) => {
     event.preventDefault();
+
+    if (!this.authorFormIsValid()) {
+      return;
+    }
+
     AuthorApi.saveAuthor(this.state.author);
     this.setState({
       redirect: true
@@ -39,6 +63,7 @@ class ManageAuthor extends React.Component {
           author={this.state.author}
           onChange={this.setAuthorState}
           onSave={this.saveAuthor}
+          errors={this.state.errors}
         />
       </div>
     );

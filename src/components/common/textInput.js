@@ -16,7 +16,7 @@ const TextInput = (props) => {
           value={props.value}
           onChange={props.onChange}
         />
-        <div className="input">{props.error}</div>
+        <div className="text-danger">{props.error}</div>
       </div>
     </div>
   );
